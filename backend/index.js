@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
-import connectDB from "./config/database";
+import connectDB from "./config/database.js";
+import userRoute from "./routes/userRoute.js";
 
 dotenv.config();
 
@@ -9,7 +10,10 @@ const app = express();
 
 app.use(express.json());
 
+app.use("/api/user-management", userRoute);
+
 connectDB();
+
 app.listen(port, (err) => {
 	if (!err) {
 		console.log(`App running successfully on port ${port}`);
