@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import connectDB from "./config/database.js";
 import userRoute from "./routes/userRoute.js";
+import postRoute from "./routes/postRoute.js";
 
 dotenv.config();
 
@@ -11,6 +12,7 @@ const app = express();
 app.use(express.json());
 
 app.use("/api/user-management", userRoute);
+app.use("/api/post-management", postRoute);
 
 connectDB();
 
